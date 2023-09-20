@@ -47,15 +47,17 @@ class _HomePageState extends State<HomePage> {
     _controller.refreshCompleted();
   }
 
+  @override
   void dispose() {
     super.dispose();
+    _controller.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Article'),
+        title: const Text('Article'),
       ),
       body: _isLoading
           ? const Center(child: CircularProgressIndicator())
@@ -74,18 +76,18 @@ class _HomePageState extends State<HomePage> {
                                     DetailsPage(article: _article[index])));
                       },
                       child: Container(
-                        margin: EdgeInsets.all(10),
+                        margin: const EdgeInsets.all(10),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           border: Border.all(color: Colors.black),
                         ),
-                        padding: EdgeInsets.all(10),
+                        padding: const EdgeInsets.all(10),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
                               '#${_article[index].id}',
-                              style: TextStyle(color: Colors.blue),
+                              style: const TextStyle(color: Colors.blue),
                             ),
                             Text('${_article[index].title}'),
                           ],

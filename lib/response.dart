@@ -1,14 +1,15 @@
 class Article {
   Article({
-      int? userId, 
-      int? id, 
-      String? title, 
-      String? body,}){
+    int? userId,
+    int? id,
+    String? title,
+    String? body,
+  }) {
     _userId = userId;
     _id = id;
     _title = title;
     _body = body;
-}
+  }
 
   Article.fromJson(dynamic json) {
     _userId = json['userId'];
@@ -16,22 +17,31 @@ class Article {
     _title = json['title'];
     _body = json['body'];
   }
+
   int? _userId;
   int? _id;
   String? _title;
   String? _body;
-Article copyWith({  int? userId,
-  int? id,
-  String? title,
-  String? body,
-}) => Article(  userId: userId ?? _userId,
-  id: id ?? _id,
-  title: title ?? _title,
-  body: body ?? _body,
-);
+
+  Article copyWith({
+    int? userId,
+    int? id,
+    String? title,
+    String? body,
+  }) =>
+      Article(
+        userId: userId ?? _userId,
+        id: id ?? _id,
+        title: title ?? _title,
+        body: body ?? _body,
+      );
+
   int? get userId => _userId;
+
   int? get id => _id;
+
   String? get title => _title;
+
   String? get body => _body;
 
   Map<String, dynamic> toJson() {
@@ -42,5 +52,4 @@ Article copyWith({  int? userId,
     map['body'] = _body;
     return map;
   }
-
 }
